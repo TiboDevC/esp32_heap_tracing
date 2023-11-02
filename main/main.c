@@ -55,6 +55,8 @@ void app_main(void)
 
     ESP_LOGE(TAG, "DONE! Leaked: %d bytes", leaked);
 
+    ESP_ERROR_CHECK(heap_trace_stop());
+
     // Wait forever
     while (1) {
         vTaskDelay(1000);
