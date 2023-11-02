@@ -1,19 +1,20 @@
-#include "esp_heap_caps.h"
-#include "esp_heap_trace.h"
-#include <esp_log.h>
-#include <freertos/FreeRTOS.h>
-#include <freertos/event_groups.h>
-#include <freertos/task.h>
 #include <stdio.h>
 #include <string.h>
+
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+
+#include "esp_heap_caps.h"
+#include "esp_heap_trace.h"
+#include "esp_log.h"
 
 #define LOOP 10
 #define SIZE 1000
 
 static const char* TAG = "HEAP-TRACE-EXAMPLE";
 
-int i = 0;
-int leaked = 0;
+static int i = 0;
+static int leaked = 0;
 
 static void print_heap_info(char* tag)
 {
